@@ -1,3 +1,5 @@
+.PHONY: dev build
+
 dev:
 	wails dev
 
