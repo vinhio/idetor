@@ -8,6 +8,7 @@ https://microsoft.github.io/monaco-editor/
 
 Lexical
 https://lexical.dev/
+    https://github.com/facebook/lexical/tree/main/packages/lexical-playground
 
 EditorJS
 https://github.com/codex-team/editor.js
