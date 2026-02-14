@@ -24,14 +24,12 @@ import {
     ParagraphNode,
     TextNode,
 } from 'lexical';
-import {Greet} from "../wailsjs/go/main/App";
-
 
 import defaultTheme from './theme';
 import ToolbarPlugin from './plugins/ToolbarPlugin';
 import TreeViewPlugin from './plugins/TreeViewPlugin';
 import {parseAllowedColor, parseAllowedFontSize} from './styleConfig';
-import {useState} from "react";
+import React from 'react';
 
 const placeholder = 'Enter some rich text...';
 
@@ -145,22 +143,8 @@ const editorConfig = {
 };
 
 export default function App() {
-    const [resultText, setResultText] = useState("Please enter your name below üëá");
-    const [name, setName] = useState('');
-    const updateName = (e: any) => setName(e.target.value);
-    const updateResultText = (result: string) => setResultText(result);
-
-    function greet() {
-        Greet(name).then(updateResultText);
-    }
-
     return (
-        <>
-            <div id="result" className="result">{resultText}</div>
-            <div id="input" className="input-box">
-                <input id="name" className="input" onChange={updateName} autoComplete="off" name="input" type="text"/>
-                <button className="btn" onClick={greet}>Greet</button>
-            </div>
+        <React.Fragment>
             <LexicalComposer initialConfig={editorConfig}>
                 <div className="editor-container">
                     <ToolbarPlugin/>
@@ -183,6 +167,6 @@ export default function App() {
                     </div>
                 </div>
             </LexicalComposer>
-        </>
+        </React.Fragment>
     );
 }
